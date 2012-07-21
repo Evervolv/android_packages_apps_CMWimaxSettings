@@ -10,6 +10,7 @@ LOCAL_SHARED_LIBRARIES := \
     libnativehelper
 
 LOCAL_C_INCLUDES := \
+	$(JNI_H_INCLUDE) \
     $(call include-path-for, libhardware_legacy)/hardware_legacy \
     frameworks/base/include \
     system/core/include

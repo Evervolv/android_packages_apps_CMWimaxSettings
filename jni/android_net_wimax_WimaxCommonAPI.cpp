@@ -17,12 +17,12 @@
 #define LOG_TAG "WimaxJNI"
 
 #include "jni.h"
-#include <utils/misc.h>
-#include <utils/Log.h>
+#include <cutils/misc.h>
+#include <cutils/log.h>
 
 //#include <netutils/ifc.h>
 #include "cutils/properties.h"
-
+#include <JNIHelp.h>
 #include <stdlib.h>
 #include <string.h>
 
