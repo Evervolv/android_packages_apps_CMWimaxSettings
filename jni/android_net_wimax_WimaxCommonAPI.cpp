@@ -236,12 +236,12 @@ int registerNatives(JNIEnv* env)
 
     clazz = env->FindClass(WIMAX_PKG_NAME);
     if (clazz == NULL) {
-        LOGE("Unable to find class " WIMAX_PKG_NAME);
+        ALOGE("Unable to find class " WIMAX_PKG_NAME);
         return JNI_FALSE;
     }
 
     if (env->RegisterNatives(clazz, gWimaxMethods, NELEM(gWimaxMethods)) < 0) {
-        LOGE("RegisterNatives failed for %s", WIMAX_PKG_NAME);
+        ALOGE("RegisterNatives failed for %s", WIMAX_PKG_NAME);
         return JNI_FALSE;
     }
 
@@ -252,15 +252,15 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved) {
     JNIEnv* env = NULL;
     jint result = -1;
 
-    LOGI("JNI_OnLoad");
+    ALOGI("JNI_OnLoad");
 
     if (vm->GetEnv((void**)&env, JNI_VERSION_1_4) != JNI_OK) {
-        LOGE("ERROR: GetEnv failed");
+        ALOGE("ERROR: GetEnv failed");
         goto bail;
     }
 
     if (!registerNatives(env)) {
-        LOGE("ERROR: registerNatives failed");
+        ALOGE("ERROR: registerNatives failed");
         goto bail;
     }
 
